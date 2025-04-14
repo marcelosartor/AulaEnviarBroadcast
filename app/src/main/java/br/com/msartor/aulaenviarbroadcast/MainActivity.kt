@@ -28,6 +28,10 @@ class MainActivity : AppCompatActivity() {
         binding.btnAbrirPdf.setOnClickListener {
             Log.i("ComunicacaoBroadcastReceiver", "ComunicacaoBroadcastReceiver clicou no botao ")
             val intent = Intent("br.com.msartor.aulaservice.ABRIR_ARQUIVO_PDF")
+            val bundle = Bundle()
+            bundle.putString("ARQUIVO","arquivo/perfil.pdf")
+            intent.putExtras(bundle)
+
             sendBroadcast(intent)
         }
     }
