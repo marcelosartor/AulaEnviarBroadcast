@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import br.com.msartor.aulaenviarbroadcast.broadcast.CapturaResultadoReceiver
 import br.com.msartor.aulaenviarbroadcast.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +28,36 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // Multiplos Broadcasts em ordem com parametros
+        binding.btnAbrirPdfOrdenado.setOnClickListener {
+            val intent = Intent("br.com.msartor.aulaservice.ACAO_ORDENADO")
+            val bundle = Bundle().apply {
+                putString("DadosExtras","Sartor")
+            }
+
+            sendOrderedBroadcast(intent,
+                null,
+                CapturaResultadoReceiver(),
+                null,
+                0,
+                "MainActivity",
+                bundle)
+        }
+
+
+        /*
+        // Multiplos Broadcasts em ordem
+        binding.btnAbrirPdfOrdenado.setOnClickListener {
+            val intent = Intent("br.com.msartor.aulaservice.ACAO_ORDENADO")
+            val bundle = Bundle()
+            bundle.putString("ARQUIVO","arquivo/perfil.pdf")
+            intent.putExtras(bundle)
+
+            sendOrderedBroadcast(intent, null)
+        }
+         */
+
+        /*
         binding.btnAbrirPdf.setOnClickListener {
             Log.i("ComunicacaoBroadcastReceiver", "ComunicacaoBroadcastReceiver clicou no botao abrir pdf")
             val intent = Intent("br.com.msartor.aulaservice.ABRIR_ARQUIVO_PDF")
@@ -76,6 +107,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(compartilhar)
 
         }
+         */
 
 
     }
