@@ -12,10 +12,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Abrir PDF"
+        app:layout_constraintBottom_toTopOf="@+id/btnAbrirPdfExplicita"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnIntentImplicita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chamar Intent Implicita"
+        app:layout_constraintBottom_toTopOf="@+id/btnIntentImplicitaWithChooser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAbrirPdfExplicita" />
+
+    <Button
+        android:id="@+id/btnIntentImplicitaWithChooser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chamar Intent Implicita com escolha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintTop_toBottomOf="@+id/btnIntentImplicita" />
+
+    <Button
+        android:id="@+id/btnAbrirPdfExplicita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Abrir PDF Chamando Intent Explicita"
+        app:layout_constraintBottom_toTopOf="@+id/btnIntentImplicita"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAbrirPdf" />
 </androidx.constraintlayout.widget.ConstraintLayout>
